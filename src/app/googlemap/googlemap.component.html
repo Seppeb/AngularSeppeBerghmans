@@ -1,0 +1,45 @@
+<h2>Google Maps</h2>
+<div class="form-group">
+  <p>Postkantoren</p>
+  <select [(ngModel)]="selectedpostkantoor " (ngModelChange)="singlePostkantoor()">
+    <option disabled selected>Kies een kantoor..</option>
+    <option *ngFor="let postkantoor of postkantoren" (onchange)="singlePostkantoor(postkantoor)" [ngValue]="postkantoor">{{postkantoor.naam}}</option>
+  </select>
+  <p>Repetitieruimtes</p>
+  <select [(ngModel)]="selectedrepetitieruimte " (ngModelChange)="singleRepetitieruimte()">
+    <option disabled selected>Kies een kantoor..</option>
+    <option *ngFor="let repetitieruimte of repetitieruimtes" (onchange)="singleRepetitieruimte(repetitieruimte)" [ngValue]="repetitieruimte">{{repetitieruimte.naam_zaal}}</option>
+  </select>
+</div>
+<hr>
+<div class="form-group">
+    <button (click)="toonRepetitieruimtes()">Toon alle repetitieruimtes</button>
+    <button (click)="toonPostkantoren()">Toon alle kantoren</button>
+    <button (click)="verberg()">verwijder alle markers</button>
+</div>
+<!-- <div class="form-group">
+    <button (click)="toonallesr()">Toon alle repetitieruimtes</button>
+    <button (click)="verbergr()">verberg alle repetitieruimtes</button>
+    <button (click)="toonenkel()">Toon geselecteerde repetitieruimte</button>    
+</div> -->
+<hr>
+<agm-map [zoom]="11" [longitude]="4.4025" [latitude]="51.2194">
+
+ 
+    <agm-marker *ngFor="let marker of markers" [longitude]="marker.longitude" [latitude]="marker.latitude"
+      [title]="marker.naam"></agm-marker>
+
+  <!-- <div *ngIf="allesr">
+      <agm-marker *ngFor="let repetitieruimte of repetitieruimtes" [longitude]="repetitieruimte.longitude" [latitude]="repetitieruimte.latitude"
+        [title]="repetitieruimte.naam"></agm-marker>
+    </div> -->
+  
+
+  <!-- <div *ngIf="enkel">
+      <agm-marker [longitude]="selectedpostkantoor.longitude" [latitude]="selectedpostkantoor.latitude"></agm-marker>
+  </div>
+  <div *ngIf="enkelr">
+      <agm-marker [longitude]="repetitieruimte.longitude" [latitude]="repetitieruimte.latitude"></agm-marker>
+  </div> -->
+
+</agm-map>
