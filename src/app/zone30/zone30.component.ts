@@ -11,19 +11,18 @@ import { LatLng } from '@agm/core';
 export class Zone30Component implements OnInit {
 
   constructor(private mydataService: MydataService) { }
-  Longlat = new Longlat();
 
-  listZone30 : Zone30[] = [];
+  listZone30: Zone30[] = [];
 
   ngOnInit() {
     this.mydataService.getZones().subscribe(result => {
-      this.listZone30 = result.data.map(zone30 =>{
-        zone30.paths = JSON.parse(zone30.geometry).coordinates[0].map(longlat =>{
-          return longlat.constructor(longlat[0],longlat[1]);
-        })
+      this.listZone30 = result.data.map(zone30 => {
+        zone30.paths = JSON.parse(zone30.geometry).coordinates[0].map(longlat => {
+          return Longlat.apply(longlat[0], longlat[1]);
+        });
         return zone30;
-      })
-    })
+      });
+    });
   }
 
 }

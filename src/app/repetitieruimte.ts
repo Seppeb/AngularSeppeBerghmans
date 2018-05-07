@@ -3,7 +3,7 @@ export interface PageRepetitieruimte {
    data: Repetitieruimte[];
 }
 
-export interface Repetitieruimte extends Showable{
+export interface Repetitieruimte extends Showable {
     id: string;
     objectid: string;
     point_lat: string;
@@ -16,7 +16,7 @@ export interface Repetitieruimte extends Showable{
     max_zittend: string;
     max_staand: string;
     orig_fid: string;
-    latitude:number;
-    longitude:number;
+    latitude: number;
+    longitude: number;
 }
 

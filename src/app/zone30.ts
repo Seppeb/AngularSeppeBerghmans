@@ -1,36 +1,31 @@
-import { LatLng } from "@agm/core";
+import { LatLng } from '@agm/core';
 
 export class PageZone30 {
     data: Zone30[];
  }
- 
+
  export class Zone30 {
      id: string;
      objectid: string;
-     geometry:string;
-     postcode:string;
-     district:string;
+     geometry: string;
+     postcode: string;
+     district: string;
      paths: any[];
 
  }
-export class Longlat implements LatLng{
-  
-    private _lat: number;
-  private _lng: number;
+export class Longlat implements LatLng  {
+
+  _lat = 0;
+  _lng = 0;
+  'constructor'(lat: number, lng: number): void {}
   lat() {
-    return this._lat;
+    return 0;
   }
   lng() {
-    return this._lng;
-  }
-  // here's the important part
-  "constructor"(lat: number, lng: number) { 
-    this._lat = lat;
-    this._lng = lng;
+    return 0;
   }
 }
 
- export class Geometry{
+ export class Geometry {
     coordinates: any[][][];
  }
- 
